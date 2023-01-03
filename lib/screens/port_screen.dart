@@ -70,7 +70,15 @@ class _PortScreenState extends State<PortScreen> {
   _openPort() {
     setState(() {
       try {
-        if (!port.isOpen) port.openRead();
+        if (!port.isOpen){
+          port.openRead();
+          port.config = SerialPortConfig()
+            ..baudRate = 9600
+            ..bits = 8
+            ..stopBits = 1
+            ..parity = SerialPortParity.none
+            ..setFlowControl(SerialPortFlowControl.none);
+        }
       } on Exception catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Can't open, error: ${e.toString()}")));

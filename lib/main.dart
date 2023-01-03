@@ -32,7 +32,7 @@ class _StreetStatusAppState extends State<StreetStatusApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter Serial Port example'),
+          title: const Text('Flutter NRS street status'),
         ),
         body: Scrollbar(
           child: ListView.builder(
